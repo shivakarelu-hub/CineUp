@@ -1,0 +1,34 @@
+[
+  {
+    "category": "tollywood",
+    "title": "Venkatesh's Family Drama 'AK 47' Dominates Box Office Runs",
+    "type": "Box Office",
+    "date": "Nov 3, 2026",
+    "summary": "Venkatesh's 'Aadarsha Kutumbam House No: 47 (AK 47)' continues to lead ticket counters across Telugu states with stellar family audience turnouts.",
+    "badge": "bg-amber-500/10 text-amber-400 border-amber-500/20"
+  },
+  {
+    "category": "bollywood",
+    "title": "Ayushmann Khurrana and Sharvari Lock 'Yeh Prem Mol Liya' Release",
+    "type": "Release Date",
+    "date": "Nov 3, 2026",
+    "summary": "Sooraj Barjatya's grand family directorial venture starring Ayushmann Khurrana prepares to hit the big screens on November 27, 2026.",
+    "badge": "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+  },
+  {
+    "category": "bollywood",
+    "title": "Emraan Hashmi's 'Gunmaaster G9' Action Thriller Finalized",
+    "type": "Shooting Update",
+    "date": "Nov 3, 2026",
+    "summary": "Directed by Aditya Datt, the high-octane action thriller featuring Emraan Hashmi and Genelia Deshmukh wraps final post-production ahead of its late November premiere.",
+    "badge": "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+  },
+  {
+    "category": "hollywood",
+    "title": "Lionsgate Ramps Up 'The Hunger Games: Sunrise on the Reaping' Campaign",
+    "type": "Next Project",
+    "date": "Nov 3, 2026",
+    "summary": "Advance ticket sales and global hype reach fever pitch as the latest dystopian prequel installment prepares for its massive worldwide holiday theater debut.",
+    "badge": "bg-cyan-500/10 text-cyan-400 border-cyan-500/20"
+  }
+]
