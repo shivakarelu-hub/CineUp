@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineTelugu - Latest Movie News, Reviews & Box Office</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-zinc-900 text-zinc-100 min-h-screen">
+
+    <!-- Top Branding Bar -->
+    <header class="bg-zinc-950 border-b border-zinc-800 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-black bg-gradient-to-r from-amber-400 to-red-500 bg-clip-text text-transparent">CINETELUGU</span>
+                <span class="text-xs bg-red-600/20 text-red-400 border border-red-500/30 px-2 py-0.5 rounded font-semibold">LIVE UPDATES</span>
+            </div>
+            <p class="text-xs text-zinc-400 hidden sm:block">Your Daily Portal for Tollywood, Bollywood & Hollywood</p>
+        </div>
+    </header>
+
+    <!-- Navigation Filter Categories -->
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap gap-2 border-b border-zinc-800/60" id="filters">
+        <button onclick="filterNews('all')" class="filter-btn px-4 py-1.5 rounded-full text-sm font-semibold bg-red-600 text-white transition">All News</button>
+        <button onclick="filterNews('tollywood')" class="filter-btn px-4 py-1.5 rounded-full text-sm font-semibold bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition">Tollywood</button>
+        <button onclick="filterNews('bollywood')" class="filter-btn px-4 py-1.5 rounded-full text-sm font-semibold bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition">Bollywood</button>
+        <button onclick="filterNews('hollywood')" class="filter-btn px-4 py-1.5 rounded-full text-sm font-semibold bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition">Hollywood</button>
+        <button onclick="filterNews('reviews')" class="filter-btn px-4 py-1.5 rounded-full text-sm font-semibold bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition">Reviews</button>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="max-w-6xl mx-auto px-4 py-6">
+        <div id="loading" class="text-center py-20 text-zinc-500">Loading daily cinema dispatches...</div>
+        <div id="news-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- News Cards Injected Dynamically -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-6 text-center text-xs text-zinc-500">
+        <p>&copy; 2026 CineTelugu Portal. Inspired by 123telugu architecture. Free & Automated.</p>
+    </footer>
+
+    <script>
+        let cachedNews = [];
+
+        async function loadNews() {
+            try {
+                const response = await fetch('news.json');
+                if (!response.ok) throw new Error("Failed to load");
+                cachedNews = await response.json();
+                renderNews(cachedNews);
+            } catch (err) {
+                // Fallback initial layout data
+                cachedNews = [
+                    { category: "tollywood", title: "Game Changer Final Schedule Wrapped Up", type: "Shooting Update", date: "Nov 3, 2026", summary: "Director Shankar concludes massive production schedule with high-octane sequences.", badge: "bg-amber-500/10 text-amber-400 border-amber-500/20" },
+                    { category: "bollywood", title: "Pathaan 2 Script Officially Locked by YRF", type: "Next Project", date: "Nov 3, 2026", summary: "Shah Rukh Khan prepares to enter pre-production fitness regimens next month.", badge: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" },
+                    { category: "reviews", title: "Latest Family Drama Streaming Review", type: "OTT Review", date: "Nov 3, 2026", summary: "An in-depth look at the newly released family entertainer on digital platforms.", badge: "bg-purple-500/10 text-purple-400 border-purple-500/20" }
+                ];
+                renderNews(cachedNews);
+            }
+        }
+
+        function renderNews(items) {
+            const container = document.getElementById('news-container');
+            document.getElementById('loading').style.display = 'none';
+            container.innerHTML = '';
+
+            if(items.length === 0) {
+                container.innerHTML = `<div class="col-span-full text-center py-10 text-zinc-500">No news found in this category.</div>`;
+                return;
+            }
+
+            items.forEach(item => {
+                container.innerHTML += `
+                    <div class="bg-zinc-950 border border-zinc-800/80 rounded-xl p-5 flex flex-col justify-between hover:border-zinc-700 transition shadow-lg">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] uppercase font-bold px-2.5 py-1 rounded border ${item.badge || 'bg-zinc-800 text-zinc-300 border-zinc-700'}">${item.type}</span>
+                                <span class="text-xs text-zinc-500">${item.date}</span>
+                            </div>
+                            <h2 class="text-base font-bold text-zinc-100 mb-2 leading-snug hover:text-amber-400 transition cursor-pointer">${item.title}</h2>
+                            <p class="text-xs text-zinc-400 leading-relaxed mb-4">${item.summary}</p>
+                        </div>
+                        <div class="pt-3 border-t border-zinc-900 flex justify-between items-center text-[11px] text-zinc-500 uppercase font-semibold">
+                            <span class="text-amber-500">#${item.category}</span>
+                            <span>Verified Update</span>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function filterNews(cat) {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.className = "filter-btn px-4 py-1.5 rounded-full text-sm font-semibold bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition";
+            });
+            event.target.className = "filter-btn px-4 py-1.5 rounded-full text-sm font-semibold bg-red-600 text-white transition";
+
+            if(cat === 'all') {
+                renderNews(cachedNews);
+            } else {
+                renderNews(cachedNews.filter(n => n.category === cat));
+            }
+        }
+
+        loadNews();
+    </script>
+</body>
+</html>
