@@ -1,0 +1,34 @@
+[
+  {
+    "category": "tollywood",
+    "title": "Venkatesh's Family Drama AK 47 Dominates Box Office",
+    "type": "Box Office",
+    "date": "Nov 3, 2026",
+    "summary": "The family entertainer pulls massive crowds across major centers in Telangana and Andhra Pradesh.",
+    "badge": "bg-amber-500/10 text-amber-400 border-amber-500/20"
+  },
+  {
+    "category": "bollywood",
+    "title": "Ayushmann Khurrana Locks Next Grand Project",
+    "type": "Next Project",
+    "date": "Nov 3, 2026",
+    "summary": "Sooraj Barjatya's upcoming theatrical venture gears up for its late-month floor dates.",
+    "badge": "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+  },
+  {
+    "category": "hollywood",
+    "title": "Avatar 4 Completes Underwater Capture Milestones",
+    "type": "Shooting Update",
+    "date": "Nov 3, 2026",
+    "summary": "James Cameron confirms groundbreaking technical achievements ahead of schedule.",
+    "badge": "bg-cyan-500/10 text-cyan-400 border-cyan-500/20"
+  },
+  {
+    "category": "reviews",
+    "title": "New Crime Thriller Series Streaming on ZEE5",
+    "type": "OTT Review",
+    "date": "Nov 3, 2026",
+    "summary": "A detailed review outlining script execution, pacing, and overall performances.",
+    "badge": "bg-purple-500/10 text-purple-400 border-purple-500/20"
+  }
+]
